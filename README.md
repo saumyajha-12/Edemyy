@@ -144,7 +144,7 @@ Edemy LMS is a full-stack learning management system (LMS) that provides educato
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/Gyanthakur/Edemy-LMS.git
+git clone https://github.com/saumyajha-12/Edemyy.git
 cd edemy-lms
 ```
 
@@ -185,44 +185,8 @@ cd client
 vercel --prod
 ```
 
----
-
-## 🔐 License
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 🎯 Contributors
-
-👤 **Gyan Pratap Singh** – *Developer & Maintainer*  
-📧 Contact: [gps.96169@gmail.com](mailto:gps.96169@gmail.com)  
-🔗 GitHub: [@gyanthakur](https://github.com/Gyanthakur)  
-
-
-## 🌐 Connect with Us
-
-Contact Us:  📲<a href="https://wa.me/918957818597?text=Hey%20%F0%9F%91%8B%2C%20how%20can%20I%20help%20you%3F">
-    <img src="https://img.shields.io/badge/WhatsApp-Click%20Me-25D366?style=for-the-badge&logo=whatsapp" alt="WhatsApp" />
-  </a>
-
-- **Name**: Gyan Pratap Singh
-- **Email**: [gps.96169@gmail.com](mailto:gps.96169@gmail.com)
-- **GitHub**: [Gyanthakur](https://github.com/Gyanthakur)
-- **Portfolio**: [Gyan's Portfolio](https://gyan-pratap-singh.vercel.app/)
-
----
 
 
 
-## Thank you for checking out the **Edemy LMS** project! Happy coding! 😊
 
----
-## ⭐ Support
-Give a ⭐ if you like this project!
 
----
-Made with ❤️ by Gyan Pratap Singh
-
-### ⭐ Show Some Love!
-
-If you like this project, don't forget to leave a **⭐ Star** on GitHub! 🚀
