@@ -116,9 +116,7 @@ const MyEnrollMents = () => {
 										onClick={() => navigate("/player/" + course._id)}
 									>
 										{progressArray[index] &&
-										progressArray[index].lectureCompleted /
-											progressArray[index].totalLectures ===
-											1
+										progressArray[index].lectureCompleted /progressArray[index].totalLectures ===1
 											? "Completed"
 											: "On Going"}
 									</button>

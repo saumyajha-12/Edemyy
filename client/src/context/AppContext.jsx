@@ -24,7 +24,7 @@ export const AppContextProvider = (props)=>{
 
     // fetch all courses 
     const fetchAllCourses = async ()=>{
-        // setAllCourses(dummyCourses)
+          setAllCourses(dummyCourses) // you can comment it to hide courses
         try {
             const {data} = await axios.get(backendUrl + '/api/course/all');
             if(data.success)

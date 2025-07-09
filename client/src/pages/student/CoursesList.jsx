@@ -12,6 +12,7 @@ const CoursesList = () => {
 	const [filteredCourse, setFilteredcourse] = useState([]);
 
 	useEffect(() => {
+	//	console.log("All Courses: ", allCourses);
 		if (allCourses && allCourses.length > 0) {
       const tempCourses = allCourses.slice()
 
@@ -56,6 +57,7 @@ const CoursesList = () => {
 					{filteredCourse.map((course, index) => (
 						<CourseCard key={index} course={course} />
 					))}
+			
 				</div>
 			</div>
       <Footer/>
