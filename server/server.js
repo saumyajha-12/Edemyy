@@ -2,12 +2,13 @@ import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
 import connectDB from './configs/mongodb.js';
-import { clerkWebhooks} from './controllers/webhooks.js'; //, import stripeWebhooks later
-//import educatorRouter from './routes/educatorRoutes.js';
-//import { clerkMiddleware } from '@clerk/express';
-//import connectCloudinay from './configs/cloudinary.js';
-//import courseRouter from './routes/courseRoute.js';
-//import userRouter from './routes/userRoutes.js';
+import { clerkWebhooks,stripeWebhooks} from './controllers/webhooks.js'; //, import  later
+import educatorRouter from './routes/educatorRoutes.js';
+ import { clerkMiddleware ,getAuth} from '@clerk/express';
+//import { ClerkExpressWithAuth } from '@clerk/express';
+import connectCloudinay from './configs/cloudinary.js';
+import courseRouter from './routes/courseRoute.js';
+import userRouter from './routes/userRoutes.js';
 
 // initialize express 
 const app = express();
@@ -15,21 +16,30 @@ const app = express();
 
 // connect to db
 await connectDB();
-//await connectCloudinay();
+await connectCloudinay();
 
 
 // middleware
 app.use(cors());
+app.use(express.json());
 //app.use(clerkMiddleware())
+//app.use(ClerkExpressWithAuth());
 
-
+app.use(clerkMiddleware(), (req, res, next) => {
+  // Manually inject auth from the request
+  req.auth = getAuth(req);
+  next();
+});
 // Routes
 app.get('/', (req,res)=>{res.send("API is working fine!")})
 app.post('/clerk', express.json(), clerkWebhooks)
-//app.use('/api/educator', express.json(), educatorRouter);
-//app.use('/api/course', express.json(), courseRouter);
-//app.use('/api/user', express.json(), userRouter);
-//app.post('/stripe', express.raw({type: 'application/json'}), stripeWebhooks);
+app.use('/api/educator', express.json(), educatorRouter);
+app.use('/api/course', express.json(), courseRouter);
+app.use('/api/user', express.json(), userRouter);
+app.post('/stripe', express.raw({type: 'application/json'}), stripeWebhooks);
+
+
+
 
 
 

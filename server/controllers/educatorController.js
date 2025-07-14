@@ -1,13 +1,14 @@
 import {clerkClient} from '@clerk/express'
-import Course from '../models/Course.js'
-import {v2 as cloudinary} from 'cloudinary'
-import { Purchase } from '../models/Purchase.js'
-import User from '../models/User.js'
+ import Course from '../models/Course.js'
+ import {v2 as cloudinary} from 'cloudinary'
+// import { Purchase } from '../models/Purchase.js'
+// import User from '../models/User.js'
 
 
 // Update role to educator
 export const updateRoleToEducator = async (req,res)=>{
     try {
+         console.log("REQ.AUTH:", req.auth); //
         const userId = req.auth.userId
 
         await clerkClient.users.updateUserMetadata(userId, {
@@ -25,70 +26,70 @@ export const updateRoleToEducator = async (req,res)=>{
 }
 
 //  Add new course 
-// export const addCourse = async(req,res) =>{
-//     try {
-//         const {courseData} = req.body;
-//         const imageFile = req.file;
-//         const educatorId = req.auth.userId
-//         console.log(educatoreId);
-//         if(!imageFile){
-//             return res.json({success: false, message:"Thumbnail Not Attached"})
-//         }
-
-//         const parsedCourseData = await JSON.parse(courseData)
-//         parsedCourseData.educator = educatorId
-//         const imageUpload = await cloudinary.uploader.upload(imageFile.path)
-//         newCourse.courseThumbnail = imageUpload.secure_url
-//         const newCourse = await Course.create(parsedCourseData)
-//         await newCourse.save()
-//         res.json({success: true, message: "Course Added"})
-
-
-
-//     } catch (error) {
-//         res.json({success: false, message:error.message})
-//     }
-// }
-
-export const addCourse = async (req, res) => {
+export const addCourse = async(req,res) =>{
     try {
-        const { courseData } = req.body;
+        const {courseData} = req.body;
         const imageFile = req.file;
-        const educatorId = req.auth.userId;
-
-        // console.log(educatorId);
-
-        if (!imageFile) {
-            return res.json({ success: false, message: "Thumbnail Not Attached" });
+        const educatorId = req.auth.userId
+       //   console.log(educatoreId);
+        if(!imageFile){
+            return res.json({success: false, message:"Thumbnail Not Attached"})
         }
 
-        const parsedCourseData = JSON.parse(courseData);
-        parsedCourseData.educator = educatorId;
-
-        // Ensure 'isPublished' defaults to true
-        // parsedCourseData.isPublished = parsedCourseData.isPublished ?? true;
-
-        // Ensure all lectures have required fields
-        // if (!parsedCourseData.courseContent?.every(chapter => 
-        //     chapter.chapterContent?.every(lecture => lecture.lectureId && lecture.lectureurl)
-        // )) {
-        //     return res.json({ success: false, message: "Lecture ID and URL are required in all chapters." });
-        // }
-
-        // Upload image first
-        const imageUpload = await cloudinary.uploader.upload(imageFile.path);
-        parsedCourseData.courseThumbnail = imageUpload.secure_url;
-
-        // Create course after ensuring image is uploaded
-        const newCourse = await Course.create(parsedCourseData);
+        const parsedCourseData = await JSON.parse(courseData)
+        parsedCourseData.educator = educatorId
+        const imageUpload = await cloudinary.uploader.upload(imageFile.path)
+        newCourse.courseThumbnail = imageUpload.secure_url
+        const newCourse = await Course.create(parsedCourseData)
         await newCourse.save()
+        res.json({success: true, message: "Course Added"})
 
-        res.json({ success: true, message: "Course Added", course: newCourse });
+
 
     } catch (error) {
-        res.json({ success: false, message: error.message });
+        res.json({success: false, message:error.message})
     }
-};
+}
+//commented from here
+// export const addCourse = async (req, res) => {
+//     try {
+//         const { courseData } = req.body;
+//         const imageFile = req.file;
+//         const educatorId = req.auth.userId;
+
+//         // console.log(educatorId);//prev comm
+
+//         if (!imageFile) {
+//             return res.json({ success: false, message: "Thumbnail Not Attached" });
+//         }
+
+//         const parsedCourseData = JSON.parse(courseData);
+//         parsedCourseData.educator = educatorId;
+
+//         // Ensure 'isPublished' defaults to true
+//         // parsedCourseData.isPublished = parsedCourseData.isPublished ?? true;
+
+//         // Ensure all lectures have required fields
+//         // if (!parsedCourseData.courseContent?.every(chapter => 
+//         //     chapter.chapterContent?.every(lecture => lecture.lectureId && lecture.lectureurl)
+//         // )) {
+//         //     return res.json({ success: false, message: "Lecture ID and URL are required in all chapters." });
+//         // }
+
+//         // Upload image first
+//         const imageUpload = await cloudinary.uploader.upload(imageFile.path);
+//         parsedCourseData.courseThumbnail = imageUpload.secure_url;
+
+//         // Create course after ensuring image is uploaded
+//         const newCourse = await Course.create(parsedCourseData);
+//         await newCourse.save()
+
+//         res.json({ success: true, message: "Course Added", course: newCourse });
+
+//     } catch (error) {
+//         res.json({ success: false, message: error.message });
+//     }
+// };
 
 
 
@@ -97,10 +98,10 @@ export const addCourse = async (req, res) => {
 
 export const getEducatorCourses = async(req,res) => {
     try {
-        // const educator = req.auth
+        // const educator = req.auth prev comm
         const educator = req.auth.userId
         const courses = await Course.find({educator})
-        // console.log(req.auth);
+        // console.log(req.auth); already comm
         res.json({success: true, courses})
         
     } catch (error) {
@@ -108,7 +109,7 @@ export const getEducatorCourses = async(req,res) => {
     }
 }
 
-// get educatore dashboard data (ttal earnings, enrolled students, No. of courses)
+// // get educatore dashboard data (ttal earnings, enrolled students, No. of courses)
 
 export const educatorDashboardData = async(req,res) =>{
     try {
