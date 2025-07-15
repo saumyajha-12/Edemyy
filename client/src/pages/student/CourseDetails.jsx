@@ -313,8 +313,8 @@ const CourseDetails = () => {
 
 						<div
 							// onClick={enrollCourse}
-							
-						>
+						//enroll button below	
+						> 
 							{isAlreadyEnrolled
 								? <p className="md:mt-6 mt-4 w-full py-3 rounded text-center  bg-blue-600 text-white font-medium"> Already Enrolled </p>
 								: courseData.coursePrice -
