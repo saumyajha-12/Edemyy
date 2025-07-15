@@ -41,7 +41,7 @@ import course_4 from './course_4.png'
 import profile_img from './profile_img.png'
 import profile_img2 from './profile_img2.png'
 import lesson_icon from './lesson_icon.svg'
-import saurabh from './saurabh.JPG'
+//import saurabh from './saurabh.JPG'
 import saumya from './saumya.JPG'
 import shruti from './shruti.JPG'
 export const assets = {
@@ -87,7 +87,7 @@ export const assets = {
     patients_icon,
     profile_img,
     profile_img2,
-     saurabh,
+     //saurabh,
   
     play_icon,
     blue_tick_icon,
@@ -122,13 +122,13 @@ export const dummyTestimonial = [
         rating: 4.8,
         feedback: 'Edemy provides an exceptional learning environment. The structured courses, real-time tracking, and user-friendly interface are top-notch.',
     },
-    {
-        name: 'Saurabh Jha',
-        role: 'Software Engineer @ Microsoft',
-        image: assets.saurabh,
-        rating: 4.7,
-        feedback: 'Edemy is a fantastic platform for upskilling. Its diverse course library and smooth UI make learning highly effective and engaging.',
-    },
+    // {
+    //     name: 'Saurabh Jha',
+    //     role: 'Software Engineer @ Microsoft',
+    //     image: assets.saurabh,
+    //     rating: 4.7,
+    //     feedback: 'Edemy is a fantastic platform for upskilling. Its diverse course library and smooth UI make learning highly effective and engaging.',
+    // },
 ];
 
 
