@@ -4,7 +4,7 @@ import Loading from '../../components/student/Loading'
 import { AppContext } from '../../context/AppContext'
 import { toast } from 'react-toastify'
 import axios from 'axios'
-import Logger from '../../components/Logger'
+//import Logger from '../../components/Logger'
 
 const StudentsEnrolled = () => {
 
@@ -16,7 +16,8 @@ const StudentsEnrolled = () => {
     // setEnrolledStudents(dummyStudentEnrolled);
     try {
       const token = await getToken();
-      const {data} = await axios.get(backendUrl + '/api/educator/enrolled-students', { headers: { Authorization: `Bearer ${token}` } })
+      const {data} = await axios.get(backendUrl + '/api/educator/enrolled-students', 
+        { headers: { Authorization: `Bearer ${token}` } })
       // console.log("data", data.enrolledStudents);
       
 
@@ -43,7 +44,7 @@ const StudentsEnrolled = () => {
     <div className='min-h-screen flex flex-col items-start justify-between md:p-8 md:pb-0 p-4 pt-8 pb-0'>
       <div className='flex flex-col items-center max-w-4xl w-full overflow-hidden rounded-md bg-white border border-gray-500/20'>
       <div className="block sm:hidden mt-2">
-					<Logger/>
+					
 			</div>
       <table className='table-fixed md:table-auto w-full overflow-hidden pb-4'>
         <thead className='text-gray-900 border-b border-gray-500/20 text-sm text-left'>

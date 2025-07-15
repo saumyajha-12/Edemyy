@@ -30,8 +30,8 @@ const CourseDetails = () => {
 	} = useContext(AppContext);
 
 	const fetcheCourseData = async () => {
-		 const findCourse = allCourses.find((course) => course._id === id);
-		setCourseData(findCourse);
+		//  const findCourse = allCourses.find((course) => course._id === id);
+		// setCourseData(findCourse);
 //comment above 2 lines if u dont wana see the links
 		try {
 			const { data } = await axios.get(backendUrl + "/api/course/" + id);

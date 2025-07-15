@@ -28,32 +28,20 @@ const SocialIcons = () => {
       </Link>
       <Link 
         target='_blank' 
-        to='https://www.linkedin.com/in/gyan-pratap-singh-275785236/'
+        to='https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BvqASsswPRlOsX3fpATCScA%3D%3D'
         className="group transition transform hover:scale-110 text-[#1e17ea] hover:text-blue-600"
       >
         <LinkedinLogo size={34} weight="fill" className="transition-colors duration-300" />
       </Link>
       <Link 
         target='_blank' 
-        to='https://github.com/gyanthakur'
+        to='https://github.com/saumyajha-12'
         className="group transition transform hover:scale-110 text-[#c2baba] hover:text-gray-500"
       >
         <GithubLogo size={34} weight="fill" className="transition-colors duration-300" />
       </Link>
-      <Link 
-        target='_blank' 
-        to='https://github.com/Gyanthakur/Edemy-LMS'
-        className="group transition transform hover:scale-110 text-[#e01d1d] hover:text-red-600"
-      >
-        <GitBranch size={34} weight="fill" className="transition-colors duration-300" />
-      </Link>
-      <Link 
-        target='_blank' 
-        to='https://wa.me/918957818597?text=Hey%20%F0%9F%91%8B%2C%20how%20can%20I%20help%20you%3F'
-        className="group transition transform hover:scale-110 text-[#0fc865] hover:text-green-500"
-      >
-        <WhatsappLogo size={34} weight="fill" className="transition-colors duration-300" />
-      </Link>
+    
+   
     </div>
   )
 }

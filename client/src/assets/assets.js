@@ -40,14 +40,13 @@ import blue_tick_icon from './blue_tick_icon.svg'
 import course_4 from './course_4.png'
 import profile_img from './profile_img.png'
 import profile_img2 from './profile_img2.png'
-import profile_img3 from './profile_img3.png'
 import lesson_icon from './lesson_icon.svg'
-
-import abhishek from './abhishek.JPG'
-import shreyansh from './shreyansh.JPG'
+import saurabh from './saurabh.JPG'
+import saumya from './saumya.JPG'
+import shruti from './shruti.JPG'
 export const assets = {
-    abhishek,
-    shreyansh,
+    saumya,
+    shruti,
     logo,
     search_icon,
     sketch,
@@ -88,7 +87,8 @@ export const assets = {
     patients_icon,
     profile_img,
     profile_img2,
-    profile_img3,
+     saurabh,
+  
     play_icon,
     blue_tick_icon,
     lesson_icon
@@ -109,76 +109,122 @@ export const dummyEducatorData = {
 
 export const dummyTestimonial = [
     {
-        name: 'Sophia Carter',
-        role: 'Student @ AKTU',
-        image: assets.abhishek,
+        name: 'Saumya Prakash',
+        role: 'Student @ NIT Jamshedpur',
+        image: assets.saumya,
         rating: 5,
-        feedback: 'Edemy LMS has revolutionized my teaching experience. The platform is intuitive, making course creation and student engagement seamless.',
+        feedback: 'Edemy has revolutionized my teaching experience. The platform is intuitive, making course creation and student engagement seamless.',
     },
     {
-        name: 'Shreyansh Dubey',
-        role: 'Student @ KNIT',
-        image: assets.shreyansh,
+        name: 'Shruti Prakash',
+        role: 'Student @  NIT Bhopal',
+        image: assets.shruti,
         rating: 4.8,
-        feedback: 'Edemy LMS provides an exceptional learning environment. The structured courses, real-time tracking, and user-friendly interface are top-notch.',
+        feedback: 'Edemy provides an exceptional learning environment. The structured courses, real-time tracking, and user-friendly interface are top-notch.',
     },
     {
-        name: 'Olivia Martinez',
+        name: 'Saurabh Jha',
         role: 'Software Engineer @ Microsoft',
-        image: assets.profile_img_3,
+        image: assets.saurabh,
         rating: 4.7,
-        feedback: 'Edemy LMS is a fantastic platform for upskilling. Its diverse course library and smooth UI make learning highly effective and engaging.',
+        feedback: 'Edemy is a fantastic platform for upskilling. Its diverse course library and smooth UI make learning highly effective and engaging.',
     },
 ];
 
 
 
+// export const dummyDashboardData = {
+//     "totalEarnings": 707.38,
+//     "enrolledStudentsData": [
+//         {
+//             "courseTitle": "Introduction to JavaScript",
+//             "student": {
+//                 "_id": "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
+//                 "name": "Saurabh",
+//                 "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ"
+//             }
+//         },
+//         {
+//             "courseTitle": "Advanced Python Programming",
+//             "student": {
+//                 "_id": "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
+//                 "name": "Great Stack",
+//                 "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ"
+//             }
+//         },
+//         {
+//             "courseTitle": "Web Development Bootcamp",
+//             "student": {
+//                 "_id": "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
+//                 "name": "Great Stack",
+//                 "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ"
+//             }
+//         },
+//         {
+//             "courseTitle": "Data Science with Python",
+//             "student": {
+//                 "_id": "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
+//                 "name": "Great Stack",
+//                 "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ"
+//             }
+//         },
+//         {
+//             "courseTitle": "Cybersecurity Basics",
+//             "student": {
+//                 "_id": "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
+//                 "name": "Great Stack",
+//                 "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ"
+//             }
+//         }
+//     ],
+//     "totalCourses": 8
+// }
 export const dummyDashboardData = {
-    "totalEarnings": 707.38,
-    "enrolledStudentsData": [
-        {
-            "courseTitle": "Introduction to JavaScript",
-            "student": {
-                "_id": "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
-                "name": "Great Stack",
-                "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ"
-            }
-        },
-        {
-            "courseTitle": "Advanced Python Programming",
-            "student": {
-                "_id": "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
-                "name": "Great Stack",
-                "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ"
-            }
-        },
-        {
-            "courseTitle": "Web Development Bootcamp",
-            "student": {
-                "_id": "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
-                "name": "Great Stack",
-                "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ"
-            }
-        },
-        {
-            "courseTitle": "Data Science with Python",
-            "student": {
-                "_id": "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
-                "name": "Great Stack",
-                "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ"
-            }
-        },
-        {
-            "courseTitle": "Cybersecurity Basics",
-            "student": {
-                "_id": "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
-                "name": "Great Stack",
-                "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ"
-            }
-        }
-    ],
-    "totalCourses": 8
-}
+  totalEarnings: 1643.85,
+  enrolledStudentsData: [
+    {
+      courseTitle: "Mastering React for Frontend Development",
+      student: {
+        _id: "user_1",
+        name: "Surabhi Prakash",
+        imageUrl: "https://img.clerk.com/eyJ0eXBlIjoiYXZhdGFyIiwic3JjIjoiaHR0cHM6Ly9jbGVyay5pbWcvZGVmYXVsdC5wbmcifQ" // Placeholder Clerk avatar
+      }
+    },
+    {
+      courseTitle: "Data Science with Python",
+      student: {
+        _id: "user_2",
+        name: "Ravi Kumar",
+        imageUrl: "https://img.clerk.com/eyJ0eXBlIjoiYXZhdGFyIiwic3JjIjoiaHR0cHM6Ly9jbGVyay5pbWcvZGVmYXVsdDIucG5nIn0" 
+      }
+    },
+    {
+      courseTitle: "Backend Development with Node.js",
+      student: {
+        _id: "user_3",
+        name: "Anjali Sharma",
+        imageUrl: "https://img.clerk.com/eyJ0eXBlIjoiYXZhdGFyIiwic3JjIjoiaHR0cHM6Ly9jbGVyay5pbWcvZGVmYXVsdDMucG5nIn0"
+      }
+    },
+    {
+      courseTitle: "Cybersecurity Essentials",
+      student: {
+        _id: "user_4",
+        name: "Devansh Mehta",
+        imageUrl: "https://img.clerk.com/eyJ0eXBlIjoiYXZhdGFyIiwic3JjIjoiaHR0cHM6Ly9jbGVyay5pbWcvZGVmYXVsdDQucG5nIn0"
+      }
+    },
+    {
+      courseTitle: "SQL & Databases for Analysts",
+      student: {
+        _id: "user_5",
+        name: "Priya Singh",
+        imageUrl: "https://img.clerk.com/eyJ0eXBlIjoiYXZhdGFyIiwic3JjIjoiaHR0cHM6Ly9jbGVyay5pbWcvZGVmYXVsdDUucG5nIn0"
+      }
+    }
+  ],
+  totalCourses: 12
+};
 
 export const dummyStudentEnrolled = [
     {

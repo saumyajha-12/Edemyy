@@ -5,7 +5,7 @@ import { assets } from '../../assets/assets'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 import { AppContext } from '../../context/AppContext'
-import Logger from '../../components/Logger'
+//import Logger from '../../components/Logger'
 
 
 const AddCourse = () => {
@@ -157,7 +157,7 @@ const AddCourse = () => {
       }
     } catch (error) {
       toast.error(error.message);
-      console.log(error.message);
+      //console.log(error.message);
     }
   };
 
@@ -241,7 +241,7 @@ const AddCourse = () => {
     <div className='h-screen overflow-scroll flex flex-col items-start justify-between md:p-8 md:pb-0 p-4 pt-8 pb-0'>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4 max-w-md w-full text-gray-500'>
       <div className="block sm:hidden ">
-					<Logger/>
+					
 			</div>
         <div className='flex flex-col gap-1'>
           <p>Course Title: </p>

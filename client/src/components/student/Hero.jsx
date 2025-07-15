@@ -1,25 +1,33 @@
-import React from 'react'
-import { assets } from '../../assets/assets'
-import SearchBar from './SearchBar'
-import { motion } from "framer-motion";
+
+
+import React from 'react';
+import SearchBar from './SearchBar';
+import { motion } from 'framer-motion';
+
 const Hero = () => {
   return (
-    <div className='flex flex-col items-center justify-center w-full md:pt-36 pt-20 px-7 md:px-0 space-y-7 text-center bg-gradient-to-b from-cyan-100/70'>
-      {/* <h1 className="text-5xl font-bold text-pink-500 m-10 mt-0 underline running-text">
-  In Development mode
-</h1> */}
+    <div className="w-full bg-gradient-to-b from-indigo-50 to-white py-20 px-6 flex flex-col items-center justify-center text-center space-y-10">
+      
+      <div className="max-w-4xl px-4">
+        <h1 className="text-heading font-heading font-extrabold md:text-6xl text-4xl leading-tight">
+          Unlock Your <span className="text-primary">Potential</span> With
+          <br />
+          Curated Learning Paths
+        </h1>
 
-      <h1 className='md:text-home-heading-large text-home-heading-small relative font-bold text-gray-800 max-w-3xl mx-auto'>Empower your future with the 
-      courses designed <span className='text-blue-600'> to fit your choice. </span> <img src={assets.sketch} alt="sketch" className='md:block hidden absolute -bottom-7 right-0' /></h1>
+        <p className="text-muted text-lg mt-6">
+          Learn from industry experts with flexible courses tailored to your goals — 
+          whether you're upskilling, switching careers, or exploring new horizons.
+        </p>
 
-      <p className='md:block hidden text-gray-500 max-w-2xl mx-auto'>We bring together world-class instructors, interactive content, and a supportive
-      community to help you achieve your personal and professional goals.</p>
+        <div className="w-full max-w-xl mt-8 mx-auto">
+          <SearchBar />
+        </div>
 
-      <p className='md:hidden text-gray-500 max-w-sm mx-auto'>We bring together world-class instructors to help you achieve your professional goals.</p>
-
-      <SearchBar />
+       
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
