@@ -41,12 +41,12 @@ import course_4 from './course_4.png'
 import profile_img from './profile_img.png'
 import profile_img2 from './profile_img2.png'
 import lesson_icon from './lesson_icon.svg'
-import saurabh from './saurabh.JPG'
-import saumya from './saumya.jpg'
-import shruti from './shruti.jpg'
+// import saurabh from './saurabh.JPG'
+// import saumya from './saumya.jpg'
+// import shruti from './shruti.jpg'
 export const assets = {
-    saumya,
-    shruti,
+    // saumya,
+    // shruti,
     logo,
     search_icon,
     sketch,
@@ -87,7 +87,7 @@ export const assets = {
     patients_icon,
     profile_img,
     profile_img2,
-     saurabh,
+    //  saurabh,
   
     play_icon,
     blue_tick_icon,
@@ -111,21 +111,21 @@ export const dummyTestimonial = [
     {
         name: 'Saumya Prakash',
         role: 'Student @ NIT Jamshedpur',
-        image: assets.saumya,
+        //image: assets.saumya,
         rating: 5,
         feedback: 'Edemy has revolutionized my teaching experience. The platform is intuitive, making course creation and student engagement seamless.',
     },
     {
         name: 'Shruti Prakash',
         role: 'Student @  NIT Bhopal',
-        image: assets.shruti,
+       // image: assets.shruti,
         rating: 4.8,
         feedback: 'Edemy provides an exceptional learning environment. The structured courses, real-time tracking, and user-friendly interface are top-notch.',
     },
     {
         name: 'Saurabh Jha',
         role: 'Software Engineer @ Microsoft',
-        image: assets.saurabh,
+        //image: assets.saurabh,
         rating: 4.7,
         feedback: 'Edemy is a fantastic platform for upskilling. Its diverse course library and smooth UI make learning highly effective and engaging.',
     },
