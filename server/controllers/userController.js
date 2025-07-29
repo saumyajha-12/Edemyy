@@ -6,6 +6,10 @@ import { CourseProgress } from "../models/CourseProgress.js";
 
 // Get user data
 export const getUserData = async (req, res) => {
+	 // Adding these three lines to disable caching
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
 	try {
 		const userId = req.auth.userId;
 		const user = await User.findById(userId);
@@ -21,6 +25,10 @@ export const getUserData = async (req, res) => {
 
 // User enrolled courses
 export const userEnrolledCourses = async (req, res) => {
+	  // Adding these three lines to disable caching
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
 	try {
 		const userId = req.auth.userId;
 		const userData = await User.findById(userId).populate("enrolledCourses");
