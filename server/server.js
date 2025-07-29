@@ -21,6 +21,7 @@ await connectCloudinay();
 
 // middleware
 app.use(cors());
+app.post('/stripe', express.raw({ type: 'application/json' }), stripeWebhooks);
 app.use(express.json());
 //app.use(clerkMiddleware())
 //app.use(ClerkExpressWithAuth());
@@ -36,7 +37,7 @@ app.post('/clerk', express.json(), clerkWebhooks)
 app.use('/api/educator', express.json(), educatorRouter);
 app.use('/api/course', express.json(), courseRouter);
 app.use('/api/user', express.json(), userRouter);
-app.post('/stripe', express.raw({type: 'application/json'}), stripeWebhooks);
+// app.post('/stripe', express.raw({type: 'application/json'}), stripeWebhooks);
 
 
 
