@@ -607,6 +607,24 @@ export const AppContextProvider = (props) => {
     }
   }, [user, isLoaded]);
 
+    // 👇 ADD THIS useEffect to log token on console
+  useEffect(() => {
+    const logToken = async () => {
+      if (isLoaded && user) {
+        try {
+          const token = await getToken();
+          console.log("Clerk Token:", token); // 🔥 check browser console
+        } catch (err) {
+          console.error("Error fetching token:", err);
+        }
+      }
+    };
+
+    logToken();
+  }, [isLoaded, user, getToken]);
+//till here
+
+
   const value = {
     currency,
     allCourses,

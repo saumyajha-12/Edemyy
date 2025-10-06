@@ -1,11 +1,4 @@
-
-<div align="center">
-  
-![favicon](https://github.com/user-attachments/assets/ba86af86-a98e-4842-9cc4-5871c5ef234b)
-
-</div>
-
-# Edemy LMS 🎓 - A Modern Learning Management System
+# Edemyy 🎓 - A Modern Learning Management System
 
 
 Edemy LMS is a full-stack learning management system (LMS) that provides educators and students with a seamless e-learning experience. Built using modern web technologies, it includes user authentication, course management, video streaming, and progress tracking.
@@ -17,14 +10,14 @@ Edemy LMS is a full-stack learning management system (LMS) that provides educato
 - **React Router DOM** for navigation
 - **React Toastify** for notifications
 - **Framer Motion** for animations
-- **Quill** for rich text editing
+- **Quill** for rich text editing(huge options for formating text)
 - **Axios** for API requests
 - **RC Progress** for progress tracking
 - **React YouTube** for video embedding
 - **Clerk Authentication** for user management
 
 ### Backend:
-- **Node.js** & **Express.js** 🚀
+- **Node.js** & **Express.js** as runtime environment and web framework respectively
 - **MongoDB** & **Mongoose** for database
 - **Cloudinary** for media storage
 - **Multer** for file uploads
@@ -48,7 +41,7 @@ Edemy LMS is a full-stack learning management system (LMS) that provides educato
  │   │   │   ├── Navbar.jsx
  │   │   │   ├── Sidebar.jsx
  │   │   ├── 📂 student
- │   │   │   ├── Logger.jsx
+ │   │   │   |
  │   ├── 📂 context
  │   │   ├── AppContext.jsx
  │   ├── 📂 pages
@@ -119,27 +112,6 @@ Edemy LMS is a full-stack learning management system (LMS) that provides educato
 
 ---
 
-## 📸 Screenshots
-
-| Page | Screenshot |
-|------|-----------|
-| **Home Page** | ![Home](https://github.com/user-attachments/assets/03cf6bd7-8c30-4817-ad49-4a8fe8000541) |
-| **Course Page** | ![Course](https://github.com/user-attachments/assets/e42c2660-8271-42ae-b7e3-c5278b6a9cf1) |
-| **My Enrollments** | ![Enrollments](https://github.com/user-attachments/assets/a88cf7c1-cab1-4106-a64d-d7cfd5d9d4b7) |
-| **Player Page** | ![Player](https://github.com/user-attachments/assets/cdc8fb2a-6f44-416f-b4bd-2f35b7acfbbd) |
-| **Educator Dashboard** | ![Dashboard](https://github.com/user-attachments/assets/6c3bec05-805e-4652-ac51-113fd870b267) |
-| **Add Course** | ![Add Course](https://github.com/user-attachments/assets/ee846dba-7b14-4006-ae95-8ff76402ed8d) |
-| **My Courses** | ![My Courses](https://github.com/user-attachments/assets/e9f1b602-fc46-4dd7-8833-f1d8b15f43a1) |
-| **Enrolled Students** | ![Enrolled Students](https://github.com/user-attachments/assets/6d118429-4aa0-487e-ad6c-1f37af3f9968) |
-
-![image](https://github.com/user-attachments/assets/6eb66c29-6a73-4f98-9c15-7625a903a109)
-
-
-
-
-
-
-
 ## ⚡ Installation & Setup
 
 ### 1️⃣ Clone the Repository
@@ -165,13 +137,13 @@ npm start
 ```
 
 ### 3️⃣ Setup Environment Variables
-Create a `.env` file in both `client/` and `server/` directories and add required credentials (MongoDB, Cloudinary, Clerk, Stripe, etc.).
+Create a `.env` file in both `client/` and `server/` directories and add required credentials (MongoDB, Cloudinary, Clerk, Stripe, etc).
 
 ---
 
 ## 🔥 Deployment
 
-This project is set up for deployment on **Vercel**.
+You can deploy this project on **Vercel**.
 
 ### Deploy Backend
 ```bash

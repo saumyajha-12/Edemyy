@@ -16,3 +16,4 @@ export const protectEducator = async(req,res, next) => {
         res.json({success: false, message:error.message})
     }
 }    
+//this file is made to protect the educator route so that only edu can upload course

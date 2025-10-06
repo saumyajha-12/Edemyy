@@ -1,7 +1,7 @@
 import express from 'express'
 
 import { 
-     addCourse,updateRoleToEducator,getEnrolledStudentsData,getEducatorCourses, educatorDashboardData} from '../controllers/educatorController.js'//import  educatorDashboardData,  g
+     addCourse,updateRoleToEducator,getEnrolledStudentsData,getEducatorCourses, educatorDashboardData} from '../controllers/educatorController.js'
 import { protectEducator } from '../middlewares/authMiddleware.js';
 import upload from '../configs/multer.js';
 
