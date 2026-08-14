@@ -1,5 +1,5 @@
 import React, { act, useContext, useEffect, useRef, useState } from 'react'
-import uniqid from 'uniqid'
+
 import Quill from 'quill'
 import { assets } from '../../assets/assets'
 import { toast } from 'react-toastify'
@@ -36,7 +36,7 @@ const AddCourse = () => {
       const title = prompt('Enter Chapter Name:');
       if(title){
         const newChapter = {
-          chapterId: uniqid(),
+          chapterId: crypto.randomUUID(),
           chapterTitle: title,
           chapterContent: [],
           collapsed: false,
@@ -83,7 +83,7 @@ const AddCourse = () => {
           const newLecture = {
             ...lectureDetails,
             lectureOrder: chapter.chapterContent.length > 0 ? chapter.chapterContent.slice(-1)[0].lectureOrder + 1 : 1,
-            lectureId: uniqid()
+            lectureId: crypto.randomUUID()
           };
           // console.log("LectureId" , lectureId);
           console.log("Lecture" , newLecture);
@@ -127,7 +127,7 @@ const AddCourse = () => {
         courseDescription: quillRef.current.root.innerHTML,
         coursePrice: Number(coursePrice),
         discount: Number(discount),
-        // isPublished: true, // ✅ Fix: Include isPublished field
+        isPublished: true, // ✅ Fix: Include isPublished field
         courseContent: chapters,
       };
   

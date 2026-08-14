@@ -195,6 +195,8 @@ import User from "../models/User.js";
 import { CourseProgress } from "../models/CourseProgress.js";
 import mongoose from "mongoose";
 
+import { clerkClient } from "@clerk/express";
+
 // --- Get user data ---
 export const getUserData = async (req, res) => {
   // Disable caching
@@ -203,14 +205,34 @@ export const getUserData = async (req, res) => {
   res.setHeader('Expires', '0');
 
   try {
-    const userId = req.auth.userId;
-    const user = await User.findById(userId);
+    const userId = req.auth?.userId;
+    if (!userId) {
+      return res.json({ success: false, message: "No user ID in req.auth", auth: req.auth });
+    }
+    let user = await User.findById(userId);
 
-    if (!user) return res.json({ success: false, message: "User not found!" });
+    // If user is not found in DB, create them on the fly (JIT provisioning for local dev)
+    if (!user) {
+      const clerkUser = await clerkClient.users.getUser(userId);
+      const email = clerkUser.emailAddresses?.[0]?.emailAddress || "";
+      
+      // Delete any old user with the same email to prevent duplicate key errors!
+      if (email) {
+         await User.deleteMany({ email });
+      }
+
+      const newUserData = {
+        _id: userId,
+        email: email,
+        name: `${clerkUser.firstName || ""} ${clerkUser.lastName || ""}`.trim(),
+        imageUrl: clerkUser.imageUrl || "",
+      };
+      user = await User.create(newUserData);
+    }
 
     return res.json({ success: true, user });
   } catch (error) {
-    return res.json({ success: false, message: error.message });
+    return res.json({ success: false, message: error.message, userId: req.auth?.userId });
   }
 };
 
@@ -241,8 +263,27 @@ export const purchaseCourse = async (req, res) => {
     const { origin } = req.headers;
     const userId = req.auth.userId;
 
-    const userData = await User.findById(userId);
+    let userData = await User.findById(userId);
     const courseData = await Course.findById(courseId);
+
+    // JIT provisioning
+    if (!userData) {
+      const clerkUser = await clerkClient.users.getUser(userId);
+      const email = clerkUser.emailAddresses?.[0]?.emailAddress || "";
+      
+      // Delete any old user with the same email
+      if (email) {
+         await User.deleteMany({ email });
+      }
+
+      const newUserData = {
+        _id: userId,
+        email: email,
+        name: `${clerkUser.firstName || ""} ${clerkUser.lastName || ""}`.trim(),
+        imageUrl: clerkUser.imageUrl || "",
+      };
+      userData = await User.create(newUserData);
+    }
 
     if (!userData || !courseData) {
       return res.json({ success: false, message: "Data Not Found" });
@@ -260,6 +301,17 @@ export const purchaseCourse = async (req, res) => {
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
     const currency = process.env.CURRENCY.toLowerCase();
+
+    // Local Development Hack: Auto-enroll the user immediately
+    // In production, this should ONLY happen inside the Stripe Webhook!
+    if (!userData.enrolledCourses.includes(courseData._id)) {
+      userData.enrolledCourses.push(courseData._id);
+      await userData.save();
+    }
+    if (!courseData.enrolledStudents.includes(userData._id)) {
+      courseData.enrolledStudents.push(userData._id);
+      await courseData.save();
+    }
 
     const session = await stripe.checkout.sessions.create({
       success_url: `${origin}/loading/my-enrollments`,
