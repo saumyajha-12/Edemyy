@@ -1,12 +1,25 @@
 import Course from "../models/Course.js";
+import redisClient from "../config/redis.js";
 
 // get all courses
 
 export const getAllCourse = async (req,res) => {
     try {
+        if (redisClient.isOpen) {
+            const cachedCourses = await redisClient.get('courses:all');
+            if (cachedCourses) {
+                console.log("Serving all courses from Redis cache");
+                return res.json({ success: true, courses: JSON.parse(cachedCourses) });
+            }
+        }
+
         const courses = await Course.find({isPublished: true}).select(['-courseContent','-enrolledStudents']).populate({path: 'educator'})
         
-        
+        if (redisClient.isOpen) {
+            await redisClient.set('courses:all', JSON.stringify(courses), {
+                EX: 3600 // Cache for 1 hour
+            });
+        }
 
         res.json ({success: true, courses})
     } catch (error) {
@@ -20,6 +33,13 @@ export const getAllCourse = async (req,res) => {
 export const getCourseId = async(req,res)=>{
     const {id} = req.params 
     try {
+        if (redisClient.isOpen) {
+            const cachedCourse = await redisClient.get(`course:${id}`);
+            if (cachedCourse) {
+                console.log(`Serving course ${id} from Redis cache`);
+                return res.json({ success: true, courseData: JSON.parse(cachedCourse) });
+            }
+        }
 
         const courseData = await Course.findById(id).populate({path:'educator'});
 
@@ -32,6 +52,12 @@ export const getCourseId = async(req,res)=>{
                 }
             })
         })
+        
+        if (redisClient.isOpen) {
+            await redisClient.set(`course:${id}`, JSON.stringify(courseData), {
+                EX: 3600 // Cache for 1 hour
+            });
+        }
 
         res.json({success:true, courseData})
         
