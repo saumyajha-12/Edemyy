@@ -187,39 +187,37 @@ const CourseDetails = () => {
 														<img
 															onClick={() =>
 																setPlayerData({
-																	videoId: lecture.lectureUrl.split("/").pop(),
+																	videoId: lecture.lectureUrl.split("/").pop().split("?")[0], 
 																})
 															}
-															className="w-4 h-4 mt-1 cursor-pointer"
+															className="w-4 h-4 mt-1 cursor-pointer shrink-0"
 															src={assets.play_icon}
 															alt="play_icon"
 														/>
 													) : (
 														<img
-															className="w-4 h-4 mt-1"
+															className="w-4 h-4 mt-1 shrink-0"
 															src={assets.play_icon}
 															alt="play_icon"
 														/>
 													)}
 
-													<div className="flex items-center justify-between w-full text-gray-800 text-xs md:text-default">
-														<p>{lecture.lectureTitle}</p>
-														<div className="flex gap-2">
+													<div className="flex items-center justify-between w-full text-gray-800 text-xs md:text-default gap-2">
+														<p className="line-clamp-1 flex-1">{lecture.lectureTitle}</p>
+														<div className="flex items-center gap-2 shrink-0">
 															{lecture.isPreviewFree && (
 																<p
 																	onClick={() =>
 																		setPlayerData({
-																			videoId: lecture.lectureUrl
-																				.split("/")
-																				.pop(),
+																			videoId: lecture.lectureUrl.split("/").pop().split("?")[0],
 																		})
 																	}
-																	className="text-blue-500 cursor-pointer"
+																	className="text-blue-500 cursor-pointer hover:underline"
 																>
 																	Preview
 																</p>
 															)}
-															<p>
+															<p className="whitespace-nowrap">
 																{humanizeDuration(
 																	lecture.lectureDuration * 60 * 1000,
 																	{ units: ["h", "m"] }
