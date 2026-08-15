@@ -263,6 +263,11 @@ app.use("/api/user", userRouter);
 
 // --- Start Server ---
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
+// Only listen locally. Vercel handles the listening itself.
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
 
+// Export for Vercel Serverless Function
+export default app;
